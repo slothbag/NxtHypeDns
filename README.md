@@ -15,6 +15,6 @@ Thats it, your network should be able to resolve hype names with no client chang
 
 Obviously you will need Mono to run this on linux.  "mono NxtHypeDns.exe"
 
-Dependancies
+Dependencies
 * ARSoft.Tools https://arsofttoolsnet.codeplex.com/ 
 * Json.NET http://james.newtonking.com/json
