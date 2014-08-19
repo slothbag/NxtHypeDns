@@ -12,3 +12,5 @@ NxtHypeDns listens on port 1053, so the line server=/hype/127.0.0.1#1053 in your
 Make sure Nxt and NxtHypeDns are both running. Currently its hardcoded to expect Nxt and NxtHypeDns on the same machine.
 
 Thats it, your network should be able to resolve hype names with no client changes.  Nxt Aliases take about a minute to register and cost about 0.03 cents.
+
+Obviously you will need Mono to run this on linux.  "mono NxtHypeDns.exe"
