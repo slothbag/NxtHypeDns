@@ -14,3 +14,7 @@ Make sure Nxt and NxtHypeDns are both running. Currently its hardcoded to expect
 Thats it, your network should be able to resolve hype names with no client changes.  Nxt Aliases take about a minute to register and cost about 0.03 cents.
 
 Obviously you will need Mono to run this on linux.  "mono NxtHypeDns.exe"
+
+Dependancies
+* ARSoft.Tools https://arsofttoolsnet.codeplex.com/ 
+* Json.NET http://james.newtonking.com/json
