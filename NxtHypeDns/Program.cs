@@ -36,8 +36,15 @@ namespace NxtHypeDns
 				if (query.Questions[0].Name.EndsWith(".hype", true, null)) {
 					string trimmed_alias = query.Questions[0].Name.ToLower().Substring(0, query.Questions[0].Name.Length - 5);
 					string address = LookupAlias("4973" + trimmed_alias);
-					if (address != "")
-						tmpadd = IPAddress.Parse(address);
+					if (address != "") {
+						try {
+							tmpadd = IPAddress.Parse(address);
+						}
+						catch (Exception ex) {
+							Console.WriteLine("Invalid IP address");
+							bFound = false;
+						}
+					}
 					else
 						bFound = false;
 				}
