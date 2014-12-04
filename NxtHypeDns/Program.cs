@@ -11,7 +11,7 @@ namespace NxtHypeDns
 	{
 		public static void Main(string[] args)
 		{
-			DnsServer server = new DnsServer(new IPEndPoint(IPAddress.Any, 1053), 10, 10, ProcessQuery);
+			var server = new DnsServer(new IPEndPoint(IPAddress.Any, 1053), 10, 10, ProcessQuery);
 			
 			server.ExceptionThrown += new EventHandler<ExceptionEventArgs>(server_ExceptionThrown);
 			server.Start();
@@ -24,7 +24,7 @@ namespace NxtHypeDns
 		
 		public static DnsMessage ProcessQuery(DnsMessageBase qquery, IPAddress clientAddress, ProtocolType protocol)
 		{
-			DnsMessage query = qquery as DnsMessage;
+			var query = qquery as DnsMessage;
 			query.IsQuery = false;
 			Boolean bFound = true;
 			IPAddress tmpadd = null;
@@ -33,7 +33,7 @@ namespace NxtHypeDns
 			
 			if ((query.Questions.Count == 1) && (query.Questions[0].RecordType == RecordType.Aaaa))
 			{
-				if (query.Questions[0].Name.EndsWith(".hype", true, null)) {
+				if (query.Questions[0].Name.ToLower().EndsWith(".hype")) {
 					string trimmed_alias = query.Questions[0].Name.ToLower().Substring(0, query.Questions[0].Name.Length - 5);
 					string address = LookupAlias("4973" + trimmed_alias);
 					if (address != "") {
