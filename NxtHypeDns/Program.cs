@@ -11,7 +11,8 @@ namespace NxtHypeDns
 	{
 		public static void Main(string[] args)
 		{
-			var server = new DnsServer(new IPEndPoint(IPAddress.Any, 1053), 10, 10, ProcessQuery);
+			var server = new DnsServer(new IPEndPoint(IPAddress.Any, 1053), 10, 10);
+			server.QueryReceived += OnQueryReceived;
 			
 			server.ExceptionThrown += new EventHandler<ExceptionEventArgs>(server_ExceptionThrown);
 			server.Start();
@@ -22,8 +23,11 @@ namespace NxtHypeDns
 			server.Stop();
 		}
 		
-		public static DnsMessage ProcessQuery(DnsMessageBase qquery, IPAddress clientAddress, ProtocolType protocol)
-		{
+		public static void OnQueryReceived(object sender, QueryReceivedEventArgs e) {
+			DnsMessageBase qquery = e.Query;
+			EndPoint clientAddress = e.RemoteEndpoint;
+			ProtocolType protocol = e.ProtocolType;
+
 			var query = qquery as DnsMessage;
 			query.IsQuery = false;
 			Boolean bFound = true;
@@ -66,7 +70,7 @@ namespace NxtHypeDns
 	
 			//Console.WriteLine(query.AnswerRecords.Count);
 			//Console.WriteLine(tmpadd.ToString());
-			return query;
+			e.Response = query;
 		}
 	
 		// Capture any DNS server exceptions

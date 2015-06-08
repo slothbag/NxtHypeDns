@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <ProjectGuid>{AF716D61-DBAF-44F9-A657-E42DA6C721EF}</ProjectGuid>
@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ARSoft.Tools.Net">
-      <HintPath>ARSoft.Tools.Net.dll</HintPath>
+      <HintPath>..\ARSoft.Tools.Net.2.1.1\lib\net45\ARSoft.Tools.Net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Newtonsoft.Json.dll</HintPath>
