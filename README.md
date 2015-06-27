@@ -1,6 +1,8 @@
 NxtHypeDns
 ==========
 
+Update: DNSChains now support .hype name resolution in addition to .nxt for Nxt clearnet names and .bit for namecoin names. Recommend users switch to that instead of this.
+
 A small standalone DNS resolver that will lookup hype domain names using Nxt Aliases.
 
 Nxt aliases must have a prefix (or namespace) of 4973.
